@@ -14,57 +14,41 @@ using namespace cocostudio::timeline;
 
 void HelloWorld::DrawBitch(Vec2 pos, cocos2d::Vec2 size) {
 
-    
-    float ratio = 1280 / 720;
-
-    this->setCameraMask((unsigned short)CameraFlag::DEFAULT, true);
-    auto cam = Camera::create();
-    cam->setAnchorPoint(Vec2(0, 0));
-    cam->setPosition3D(Vec3(0, 0, 700));
-    cam->lookAt(Vec3(0, 1, 0));
-    cam->setCameraFlag(CameraFlag::DEFAULT);
-    this->addChild(cam);
-
-    //we are making sprite with the same height and width
     auto mySprite = Sprite::create();
-    //create a PolygonInfo object to store all the data needed for polygon drawing
+
     PolygonInfo inf;
-    // assigning texture file
+
     inf.filename = "HelloWorld.png";
-    //
-    // setting the number of vertices in the desired polygon (3 because triangle)
+
     inf.triangles.vertCount = 3;
-    // allocating memory for vertices (vertex position on the screen, vertex color Color4B, corresponding texture point)
     inf.triangles.verts = new V3F_C4B_T2F[inf.triangles.vertCount];
-    // triangles are drawn based on the indices of vertices, hence the count is always divisible by 3
     inf.triangles.indexCount = 3;
-    // the triangle are actually polygon vertices stored in inf.triangles.verts. To draw one triangle one provides a set of 3 indices
     inf.triangles.indices = new unsigned short[inf.triangles.indexCount];
-    //Now setting up triangle vertices
-    //first, lower left point
+
+
     inf.triangles.verts[0].vertices = Vec3(pos.x, pos.y, 0) + Vec3(0, 0, 0);
     inf.triangles.verts[0].texCoords = Tex2F(0, 1);
     inf.triangles.verts[0].colors = Color4B(255, 255, 255, 255);
 
-    //second, lower right point
     inf.triangles.verts[1].vertices = Vec3(pos.x, pos.y, 0) + Vec3(size.x, 0, 0);
     inf.triangles.verts[1].texCoords = Tex2F(1.0, 1);
     inf.triangles.verts[1].colors = Color4B(255, 255, 255, 255);
-    //third, top point
+
     inf.triangles.verts[2].vertices = Vec3(pos.x, pos.y, 0) + Vec3(size.x * 0.5f, size.y, 0);
     inf.triangles.verts[2].texCoords = Tex2F(0.5, 0.0);
     inf.triangles.verts[2].colors = Color4B(255, 255, 255, 255);
-    // setting the vertex indices to draw polygon
+
     inf.triangles.indices[0] = 0;
     inf.triangles.indices[1] = 1;
     inf.triangles.indices[2] = 2;
-    //setting the rectangle containing the sprite
 
     inf.rect = Rect(Vec2(0, 0), Size(size.x, size.y));
     mySprite->initWithPolygon(inf);
     mySprite->setAnchorPoint(Vec2(0.0f, 0.0f));
+    mySprite->setCameraMask((unsigned short)CameraFlag::DEFAULT, true);
+    this->addChild(mySprite);
 
-    addChild(mySprite);
+    
     
 }
 
@@ -88,7 +72,7 @@ Scene* HelloWorld::createScene()
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-    if ( !LayerColor::initWithColor(Color4B::BLACK) )
+    if ( !LayerColor::initWithColor(Color4B::BLUE) )
     {
         return false;
     }
@@ -96,7 +80,20 @@ bool HelloWorld::init()
     Vec2 pos = { 0, 0 };
     Vec2 size = { 1280, 720 };
     DrawBitch(pos, size);
-   
+
+    //this->setCameraMask((unsigned short)CameraFlag::DEFAULT);
+    //auto cam = Camera::create();
+    ////auto cam = Camera::createPerspective(40, 1280 / 720, 10, 1000);
+    //cam->setCameraFlag(CameraFlag::DEFAULT);
+
+    ////cam->setPositionX(100);
+    //cam->setPosition3D(Vec3(640, 0, 500));
+    //cam->lookAt(Vec3(640, 360, 0), Vec3(0, 1, 0));
+    ////cam->lookAt(Vec3(0, 1, 0));
+
+    //this->addChild(cam, 1, "camera");
+
+    this->setRotation3D(Vec3(-45, 0, 0));
 
     return true;
 }
