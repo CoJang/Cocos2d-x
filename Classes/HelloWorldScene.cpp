@@ -31,6 +31,7 @@ void HelloWorld::DrawBitch(Vec2 pos, cocos2d::Vec2 size) {
     PolygonInfo inf;
     // assigning texture file
     inf.filename = "HelloWorld.png";
+    //
     // setting the number of vertices in the desired polygon (3 because triangle)
     inf.triangles.vertCount = 3;
     // allocating memory for vertices (vertex position on the screen, vertex color Color4B, corresponding texture point)
