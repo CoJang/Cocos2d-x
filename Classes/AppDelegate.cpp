@@ -30,10 +30,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
         glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 1280, 720));
+        //glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 2560, 1440));
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
+    //director->getOpenGLView()->setDesignResolutionSize(2560, 1440, ResolutionPolicy::EXACT_FIT);
+    director->getOpenGLView()->setDesignResolutionSize(1980, 1080, ResolutionPolicy::EXACT_FIT);
+    //director->getOpenGLView()->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);
@@ -45,6 +48,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     auto scene = GameScene::createScene();
+   // auto scene = HelloWorld::createScene();
 
     // run
     director->runWithScene(scene);

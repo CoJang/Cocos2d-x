@@ -45,7 +45,6 @@ void HelloWorld::DrawBitch(Vec2 pos, cocos2d::Vec2 size) {
     inf.rect = Rect(Vec2(0, 0), Size(size.x, size.y));
     mySprite->initWithPolygon(inf);
     mySprite->setAnchorPoint(Vec2(0.0f, 0.0f));
-    mySprite->setCameraMask((unsigned short)CameraFlag::DEFAULT, true);
     this->addChild(mySprite);
 
     
@@ -81,19 +80,19 @@ bool HelloWorld::init()
     Vec2 size = { 1280, 720 };
     DrawBitch(pos, size);
 
-    //this->setCameraMask((unsigned short)CameraFlag::DEFAULT);
-    //auto cam = Camera::create();
-    ////auto cam = Camera::createPerspective(40, 1280 / 720, 10, 1000);
-    //cam->setCameraFlag(CameraFlag::DEFAULT);
+    this->setCameraMask((unsigned short)CameraFlag::USER1);
+    auto cam = Camera::create();
+    //auto cam = Camera::createPerspective(40, 1280 / 720, 10, 1000);
+    cam->setCameraFlag(CameraFlag::USER1);
 
-    ////cam->setPositionX(100);
-    //cam->setPosition3D(Vec3(640, 0, 500));
-    //cam->lookAt(Vec3(640, 360, 0), Vec3(0, 1, 0));
-    ////cam->lookAt(Vec3(0, 1, 0));
+    //cam->setPositionX(100);
+    cam->setPosition3D(Vec3(640, 0, 500));
+    cam->lookAt(Vec3(640, 360, 0), Vec3(0, 1, 0));
+    //cam->lookAt(Vec3(0, 1, 0));
 
-    //this->addChild(cam, 1, "camera");
+    this->addChild(cam, 1, "camera");
 
-    this->setRotation3D(Vec3(-45, 0, 0));
+   // this->setRotation3D(Vec3(-45, 0, 0));
 
     return true;
 }

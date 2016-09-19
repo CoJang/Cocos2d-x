@@ -37,13 +37,26 @@ bool GameScene::init()
         return false;
     }
 
-    auto spr = Sprite::create("HelloWorld.png");
+    //auto spr = Sprite::create("wallpaper038-2560x1440.jpg"); // [ QHD ]
+    auto spr = Sprite::create("wallpaper029-1920x1080.jpg"); // [ FHD ]
     
     spr->setAnchorPoint(Vec2(0, 0));
     spr->setPosition(Vec2(0, 0));
 
     this->addChild(spr);
-    //this->setRotation3D(Vec3(-45, 0, 0));
+    
+    this->setCameraMask((unsigned short)CameraFlag::USER1);
+    auto cam = Camera::create();
+    //auto cam = Camera::createPerspective(40, 1280 / 720, 10, 1000);
+    cam->setCameraFlag(CameraFlag::USER1);
+
+    //cam->setPositionX(100);
+    cam->setPosition3D(Vec3(640, 0, 500));
+    cam->lookAt(Vec3(640, 360, 0), Vec3(0, 1, 0));
+    //cam->lookAt(Vec3(0, 1, 0));
+
+    this->addChild(cam, 1, "camera");
+
 
     return true;
 }
