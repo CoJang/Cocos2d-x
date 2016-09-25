@@ -28,6 +28,17 @@ Scene* GameScene::createScene()
     return GameScene;
 }
 
+void GameScene::MakeCamera(cocos2d::CameraFlag CameraFlag, cocos2d::Vec3 CameraPosition, cocos2d::Vec3 CameraLookAt)
+{
+    auto cam = Camera::create();
+    cam->setCameraFlag(CameraFlag);
+
+    cam->setPosition3D(CameraPosition);
+    cam->lookAt(CameraLookAt);
+
+    this->addChild(cam);
+}
+
 
 // on "init" you need to initialize your instance
 bool GameScene::init()
@@ -37,25 +48,41 @@ bool GameScene::init()
         return false;
     }
 
-    //auto spr = Sprite::create("wallpaper038-2560x1440.jpg"); // [ QHD ]
-    auto spr = Sprite::create("wallpaper029-1920x1080.jpg"); // [ FHD ]
+    // 카메라
+    {
+       // 카메라 넘버 지정. [ 이 씬에서는 이 카메라를 쓴다. ]
+       this->setCameraMask((unsigned short)CameraFlag::USER1);
+
+       Vec3 campos = { 640, -100, 500 };
+       Vec3 camlookat = { 640, 360, 0 };
+
+       MakeCamera(CameraFlag::USER1, campos, camlookat);
+    }
     
-    spr->setAnchorPoint(Vec2(0, 0));
-    spr->setPosition(Vec2(0, 0));
-
-    this->addChild(spr);
+    //배경 화면 [ 사이드 배경화면 2개, 메인 배경화면 1개 ]
+    {
+        auto sideground0 = Sprite::create("side_ground.png");
     
-    this->setCameraMask((unsigned short)CameraFlag::USER1);
-    auto cam = Camera::create();
-    //auto cam = Camera::createPerspective(40, 1280 / 720, 10, 1000);
-    cam->setCameraFlag(CameraFlag::USER1);
+        sideground0->setAnchorPoint(Vec2(0, 0));
+        sideground0->setPosition(Vec2(-600, 0));
 
-    //cam->setPositionX(100);
-    cam->setPosition3D(Vec3(640, 0, 500));
-    cam->lookAt(Vec3(640, 360, 0), Vec3(0, 1, 0));
-    //cam->lookAt(Vec3(0, 1, 0));
+        this->addChild(sideground0, 1, "sideground_0");
 
-    this->addChild(cam, 1, "camera");
+        auto sideground1 = Sprite::create("side_ground.png");
+
+        sideground1->setAnchorPoint(Vec2(0, 0));
+        sideground1->setPosition(Vec2(1000, 0));
+
+        this->addChild(sideground1, 1, "sideground_1");
+
+        auto mainground = Sprite::create("main_ground.png");
+
+        mainground->setAnchorPoint(Vec2(0, 0));
+        mainground->setAnchorPoint(Vec2(0, 0));
+
+        this->addChild(mainground, 0, "mainground");
+    }
+
 
 
     return true;

@@ -35,14 +35,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
 
     //director->getOpenGLView()->setDesignResolutionSize(2560, 1440, ResolutionPolicy::EXACT_FIT);
-    director->getOpenGLView()->setDesignResolutionSize(1980, 1080, ResolutionPolicy::EXACT_FIT);
-    //director->getOpenGLView()->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
+    //director->getOpenGLView()->setDesignResolutionSize(1980, 1080, ResolutionPolicy::EXACT_FIT);
+    director->getOpenGLView()->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
+    director->setAnimationInterval(1.0f / 60);
 
     FileUtils::getInstance()->addSearchPath("res");
 
