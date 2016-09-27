@@ -24,9 +24,6 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MyCamera.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -39,9 +36,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="GameScene.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MyCamera.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

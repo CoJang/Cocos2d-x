@@ -20,27 +20,34 @@ void HelloWorld::DrawBitch(Vec2 pos, cocos2d::Vec2 size) {
 
     inf.filename = "HelloWorld.png";
 
-    inf.triangles.vertCount = 3;
+    inf.triangles.vertCount = 4;
     inf.triangles.verts = new V3F_C4B_T2F[inf.triangles.vertCount];
-    inf.triangles.indexCount = 3;
+    inf.triangles.indexCount = 6;
     inf.triangles.indices = new unsigned short[inf.triangles.indexCount];
-
 
     inf.triangles.verts[0].vertices = Vec3(pos.x, pos.y, 0) + Vec3(0, 0, 0);
     inf.triangles.verts[0].texCoords = Tex2F(0, 1);
     inf.triangles.verts[0].colors = Color4B(255, 255, 255, 255);
 
     inf.triangles.verts[1].vertices = Vec3(pos.x, pos.y, 0) + Vec3(size.x, 0, 0);
-    inf.triangles.verts[1].texCoords = Tex2F(1.0, 1);
+    inf.triangles.verts[1].texCoords = Tex2F(1, 1);
     inf.triangles.verts[1].colors = Color4B(255, 255, 255, 255);
 
-    inf.triangles.verts[2].vertices = Vec3(pos.x, pos.y, 0) + Vec3(size.x * 0.5f, size.y, 0);
-    inf.triangles.verts[2].texCoords = Tex2F(0.5, 0.0);
+    inf.triangles.verts[2].vertices = Vec3(pos.x, pos.y, 0) + Vec3(size.x, size.y, 0);
+    inf.triangles.verts[2].texCoords = Tex2F(1, 0.0);
     inf.triangles.verts[2].colors = Color4B(255, 255, 255, 255);
+
+	inf.triangles.verts[3].vertices = Vec3(pos.x, pos.y, 0) + Vec3(0, size.y, 0);
+	inf.triangles.verts[3].texCoords = Tex2F(0, 0);
+	inf.triangles.verts[3].colors = Color4B(255, 255, 255, 255);
 
     inf.triangles.indices[0] = 0;
     inf.triangles.indices[1] = 1;
     inf.triangles.indices[2] = 2;
+
+	inf.triangles.indices[3] = 2;
+	inf.triangles.indices[4] = 3;
+	inf.triangles.indices[5] = 0;
 
     inf.rect = Rect(Vec2(0, 0), Size(size.x, size.y));
     mySprite->initWithPolygon(inf);
@@ -76,17 +83,17 @@ bool HelloWorld::init()
         return false;
     }
 
-    Vec2 pos = { 0, 0 };
-    Vec2 size = { 1280, 720 };
+    Vec2 pos = { 0, -200 };
+    Vec2 size = { 1280, 1500 };
     DrawBitch(pos, size);
 
     this->setCameraMask((unsigned short)CameraFlag::USER1);
-    auto cam = Camera::create();
-    //auto cam = Camera::createPerspective(40, 1280 / 720, 10, 1000);
+    //auto cam = Camera::create();
+    auto cam = Camera::createPerspective(60, 16/10, 10, 10000);
     cam->setCameraFlag(CameraFlag::USER1);
 
     //cam->setPositionX(100);
-    cam->setPosition3D(Vec3(640, 0, 500));
+    cam->setPosition3D(Vec3(640, -400, 500));
     cam->lookAt(Vec3(640, 360, 0), Vec3(0, 1, 0));
     //cam->lookAt(Vec3(0, 1, 0));
 
