@@ -1,7 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 
-class Animator : public cocos2d::LayerColor
+class Animator
 {
 public:
 	Animator();
@@ -10,10 +10,10 @@ public:
 	//[1, 2] 애니메이션으로 출력 될 스프라이트 크기 [X Y]
 	//[3, 4] 총 이미지 크기 [X Y]
 	//[5]    이미지가 출력 될 지연시간
-	void InitAnimation(int unitsizeX, int unitsizeY, int imagewidth, int imageheight, float anidelay);
+	static Animator* InitAnimation(cocos2d::Layer* scene, int unitsizeX, int unitsizeY, int imagewidth, int imageheight, float anidelay);
 
 public:
-	void FrameMove(FLOAT Elapsed);	// 일정 시간이 지나면 스프라이트 이미지 이동을 처리
+	void UpdateAni(FLOAT Elapsed);	// 일정 시간이 지나면 스프라이트 이미지 업데이트을 처리
 
 	void SetAniIndex(int Index);	// 애니메이션 변화를 설정하기 위한 메소드 [ 세로(Y축) 위치 ]
 

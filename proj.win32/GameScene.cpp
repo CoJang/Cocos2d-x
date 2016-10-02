@@ -45,13 +45,13 @@ void GameScene::MakeCamera(cocos2d::CameraFlag CameraFlag, cocos2d::Vec3 CameraP
 
 bool GameScene::init()
 {
-    if (!LayerColor::initWithColor(Color4B::RED))
+    if (!Layer::init())
     {
         return false;
     }
 
     // 바닥 화면 [ 사이드 바닥 2개, 메인 바닥 1개 ]
-    Inittiles();
+    //Inittiles();
     
     // 카메라 [ 이 뒤에 생성되는 개체는 카메라의 영향을 안받는다. ]
     {
@@ -65,7 +65,7 @@ bool GameScene::init()
     }
 
     // 배경 화면 [ 뒷 배경 3개 - 하늘, 산, 그라데이션 ]
-    Initbackground();
+    //Initbackground();
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
@@ -73,9 +73,7 @@ bool GameScene::init()
 	listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
-	/*Animator* horse_head;
-
-	horse_head->InitAnimation(300, 400, 1200, 1200, 2);*/
+	a_Horse_head = Animator::InitAnimation(this, 300, 400, 1200, 1200, 0.5f);
 
     return true;
 }

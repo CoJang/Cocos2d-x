@@ -1,13 +1,16 @@
 #pragma once
 #include "cocos2d.h"
+#include "Animator.h"
 
 USING_NS_CC;
 
-class GameScene : public cocos2d::LayerColor
+class GameScene : public cocos2d::Layer
 {
 public:
     Sprite* mainground;
 	Sprite* sideground[2];
+
+	Animator* a_Horse_head;
 
 	Vec3 camlocation;
 public:
