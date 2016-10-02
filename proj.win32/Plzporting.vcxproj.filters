@@ -24,6 +24,9 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -36,6 +39,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="GameScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

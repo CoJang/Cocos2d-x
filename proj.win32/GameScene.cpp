@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include "HelloWorldScene.h"
+#include "Animator.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -63,7 +64,7 @@ bool GameScene::init()
         MakeCamera(CameraFlag::USER1, campos, camlookat);
     }
 
-    // 배경 화면 [ 뒷 배경 2개 - 하늘, 산 ]
+    // 배경 화면 [ 뒷 배경 3개 - 하늘, 산, 그라데이션 ]
     Initbackground();
 
 	auto listener = EventListenerTouchOneByOne::create();
@@ -72,12 +73,16 @@ bool GameScene::init()
 	listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
+	/*Animator* horse_head;
+
+	horse_head->InitAnimation(300, 400, 1200, 1200, 2);*/
+
     return true;
 }
 
 void GameScene::Inittiles()
 {
-    sideground[0] = Sprite::create("side_ground.jpg");
+    sideground[0] = Sprite::create("side_ground1.png");
 
     sideground[0]->setAnchorPoint(Vec2(1, 0));
     sideground[0]->setPosition(Vec2(250, -300));
@@ -86,7 +91,7 @@ void GameScene::Inittiles()
 
     this->addChild(sideground[0], 1, "side_left");
 
-    sideground[1] = Sprite::create("side_ground.jpg");
+    sideground[1] = Sprite::create("side_ground2.png");
 
     sideground[1]->setAnchorPoint(Vec2(0, 0));
     sideground[1]->setPosition(Vec2(1080, -300));
@@ -95,7 +100,7 @@ void GameScene::Inittiles()
 
     this->addChild(sideground[1], 1, "side_right");
 
-    mainground = Sprite::create("main_ground.jpg");
+    mainground = Sprite::create("main_ground.png");
 
     mainground->setAnchorPoint(Vec2(0, 0));
     mainground->setPosition(Vec2(0, -300));
@@ -110,15 +115,7 @@ void GameScene::Inittiles()
     object1->setPosition(Vec2(640, -280));
     object1->setRotation3D(Vec3(70, 0, 0));
 
-    this->addChild(object1, 1, "object1");
-
-	/*sideground[0] = DrawBox("side_ground.jpg", Vec2(-1320, -300), Vec2(1530, 1880), Vec2(0, 0),	"side_left",   1);
-	sideground[1] = DrawBox("side_ground.jpg", Vec2(1080, -300),  Vec2(1530, 1880), Vec2(0, 0),	"side_right",  1);
-	mainground =	DrawBox("main_ground.jpg", Vec2(0, -300),	  Vec2(1130, 1880), Vec2(0, 0),	"main_ground", 0);
-
-	sideground[0]->getTexture()->setTexParameters({ GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT });
-	sideground[1]->getTexture()->setTexParameters({ GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT });
-	mainground->getTexture()->setTexParameters({ GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT });*/
+    this->addChild(object1, 1, "char");
 
     this->scheduleUpdate();
 }
@@ -132,12 +129,19 @@ void GameScene::Initbackground()
 
     this->addChild(skyground, 0, "sky");
 
-    auto mountainground = Sprite::create("mountain_ground.png");
+    auto mountainground = Sprite::create("mountain_ground.png"); //mountain_ground
 
     mountainground->setAnchorPoint(Vec2(0, 0));
     mountainground->setPosition(Vec2(-10, 520));
 
     this->addChild(mountainground, 0, "mountain");
+
+	auto gradaition = Sprite::create("gradaition.png");
+
+	gradaition->setAnchorPoint(Vec2(0, 0));
+	gradaition->setPosition(Vec2(0, 142));
+
+	this->addChild(gradaition, 2, "gradaition");
 }
 
 void GameScene::update(float delta)

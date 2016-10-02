@@ -30,21 +30,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
         glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 1280, 720));
-        //glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 2560, 1440));
         director->setOpenGLView(glview);
     }
 
-    //director->getOpenGLView()->setDesignResolutionSize(2560, 1440, ResolutionPolicy::EXACT_FIT);
-    //director->getOpenGLView()->setDesignResolutionSize(1980, 1080, ResolutionPolicy::EXACT_FIT);
     director->getOpenGLView()->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
 
-    // turn on display FPS
-    director->setDisplayStats(true);
+    director->setDisplayStats(true);     // turn on display FPS
 
-    // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 60);
+    director->setAnimationInterval(1.0f / 60);     // set FPS. the default value is 1.0/60 if you don't call this
 
-    FileUtils::getInstance()->addSearchPath("res");
+    FileUtils::getInstance()->addSearchPath("res"); // add File Path
 
     // create a scene. it's an autorelease object
     auto scene = GameScene::createScene();
