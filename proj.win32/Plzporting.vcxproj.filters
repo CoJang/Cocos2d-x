@@ -10,6 +10,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\NewFilter1">
+      <UniqueIdentifier>{20127746-f13c-4f35-9b94-af0a40bbf2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Units">
+      <UniqueIdentifier>{8e5db9cb-7fa7-406b-a45a-c2b064541e4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,8 +30,14 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Animator.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\MyCamera.cpp">
+      <Filter>src\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Animator.cpp">
+      <Filter>src\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Horse.cpp">
+      <Filter>src\Units</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,8 +53,14 @@
     <ClInclude Include="GameScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Animator.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\MyCamera.h">
+      <Filter>src\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Animator.h">
+      <Filter>src\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Horse.h">
+      <Filter>src\Units</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
