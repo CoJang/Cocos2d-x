@@ -4,7 +4,7 @@
 
 USING_NS_CC;
 
-class Horse : public Animator
+class Man : public Animator
 {
 private:
 	float m_fHeightMover;
@@ -12,13 +12,14 @@ private:
 public:
 	Animator*	Head;
 	Animator*	Body;
+	Animator*	Legs;
 
 	float	  m_Level;
 
-	Horse();
-	virtual ~Horse();
+	Man();
+	virtual ~Man();
 
-	Horse* InitHorse(cocos2d::Layer* scene);
+	Man* InitMan(cocos2d::Layer* scene);
 
 	virtual void update(float delta);
 };

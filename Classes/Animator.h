@@ -13,7 +13,7 @@ public:
 	//[3, 4] 총 이미지 크기 [X Y]
 	//[5]    한 개의 스프라이트가 출력 될 시간
 	//[6, 7] 파일명 [스프라이트, 이미지]
-	static Animator* InitAnimation(cocos2d::Layer* scene, int animationCnt, int unitsizeX, int unitsizeY, int imagewidth, int imageheight, float anidelay, char* spritefile, char* imagefile);
+	static Animator* InitAnimation(cocos2d::Layer* scene, int animationCnt, int unitsizeX, int unitsizeY, int imagewidth, int imageheight, float anidelay, char* imagefile);
 
 public:
 	void SetAniIndex(int Index);	// 애니메이션 변화를 설정하기 위한 메소드 [ 세로(Y축) 위치 ]

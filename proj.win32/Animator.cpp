@@ -1,4 +1,4 @@
-#include "Animator.h"
+include "Animator.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -17,7 +17,7 @@ Animator::Animator()
 	AniDelay = 0; 			AniIndex = 0;
 	ImageWidth = 0;			ImageHeight = 0;
 	CurrentFrame = 0;
-	TotalHorzCount = 0;	TotalAniCount = 0;
+	TotalFrameCount = 0;	TotalAniCount = 0;
 	AniDuration = 0;
 }
 
@@ -25,38 +25,29 @@ Animator::~Animator()
 {
 }
 
-Animator* Animator::InitAnimation(cocos2d::Layer* scene, int animationCnt, int unitsizeX, int unitsizeY, int imagewidth, int imageheight, float anidelay, char* imagefile)
+Animator* Animator::InitAnimation(cocos2d::Layer* scene, int unitsizeX, int unitsizeY, int imagewidth, int imageheight, float anidelay)
 {
-	Animator* _new = nullptr;
-
-	CCTexture2D* texture = nullptr;
-	CCAnimation* animation = nullptr;
-
-	_new = new (std::nothrow) Animator();
-	if(!_new)goto FAILED_FUNC;
-
-	if(!_new->init())goto FAILED_FUNC;
-
-	_new->autorelease();
+	auto _new = new Animator();
 
 	_new->UnitSizeX = unitsizeX;
 	_new->UnitSizeY = unitsizeY;
 	_new->ImageWidth = imagewidth;
 	_new->ImageHeight = imageheight;
 	_new->AniDelay = anidelay;
-	_new->TotalHorzCount = imagewidth / unitsizeX;
-	_new->TotalAniCount = animationCnt;
+	_new->TotalFrameCount = imagewidth / unitsizeX;
+	_new->TotalAniCount = imageheight / unitsizeY;
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	texture = CCTextureCache::sharedTextureCache()->addImage(imagefile);
-	if(!texture)goto FAILED_FUNC;
+	CCSprite* sprite = CCSprite::create("horse_head_00.png");
+	
 
-	animation = CCAnimation::create();
-	if(!animation)goto FAILED_FUNC;
+	CCTexture2D* texture = CCTextureCache::sharedTextureCache()->addImage("horse_head.png");
 
-	for (size_t i = 0; i < _new->TotalAniCount; ++i) {
-		size_t x = i % _new->TotalHorzCount;
-		size_t y = i / _new->TotalHorzCount;
+	CCAnimation* animation = CCAnimation::create();
+
+	for (size_t i = 0; i < _new->TotalAniCount * _new->TotalFrameCount; ++i) {
+		size_t x = i % _new->TotalFrameCount;
+		size_t y = i / _new->TotalFrameCount;
 
 		Rect rt = Rect(
 			_new->UnitSizeX * x,
@@ -70,16 +61,25 @@ Animator* Animator::InitAnimation(cocos2d::Layer* scene, int animationCnt, int u
 
 	animation->setDelayPerUnit(_new->AniDelay);
 
-	_new->runAction(RepeatForever::create(Animate::create(animation)));
+	sprite->setAnchorPoint(Vec2(0, 0));
+	sprite->setPosition(Vec2(640, 150));
+	sprite->runAction(CCAnimate::create(animation));
 
-	scene->addChild(_new, 4, imagefile);
+	scene->addChild(sprite, 4);
 	return _new;
+}
 
-FAILED_FUNC:
-	if (_new)delete _new;
-	if (texture)delete texture;
-	if (animation)delete animation;
-	return nullptr;
+void Animator::UpdateAni(float Elapsed)
+{
+	AniDuration -= Elapsed;
+
+	if (AniDuration < 0)
+	{
+		AniDuration += AniDelay;
+		++CurrentFrame;
+		if (CurrentFrame >= TotalFrameCount)
+			CurrentFrame = 0;
+	}
 }
 
 void Animator::SetAniIndex(int index)
