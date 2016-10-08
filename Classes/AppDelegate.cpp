@@ -30,10 +30,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
         glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 1280, 720));
+		//glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 2500, 1300));
         director->setOpenGLView(glview);
     }
 
     director->getOpenGLView()->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
+	//director->getOpenGLView()->setDesignResolutionSize(2500, 1400, ResolutionPolicy::SHOW_ALL);
 
     director->setDisplayStats(true);     // turn on display FPS
 

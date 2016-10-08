@@ -3,6 +3,8 @@
 #include "Animator.h"
 #include "Horse.h"
 #include "Man.h"
+#include "UI.h"
+#include "tile&background.h"
 
 USING_NS_CC;
 
@@ -10,10 +12,11 @@ class GameScene : public cocos2d::Layer
 {
 public:
     Sprite* mainground;
-	Sprite* sideground[2];
 
 	Horse* horse;
 	Man*   man;
+	UI*	   InGame_UI;
+	tile_background* Tile_Background;
 
 	Vec3 camlocation;
 public:
@@ -24,14 +27,8 @@ public:
     CREATE_FUNC(GameScene);
 
 public:
-    // 앞의 배경 (타일류)를 생성하는 함수 
-    void Inittiles();
-
-    // 앞의 배경 (타일류)를 움직이는 함수
+    // Scene내의 모든 객체의 update를 담당
     void update(float delta);
-
-    // 뒤의 배경 (하늘, 산)을 움직이는 함수
-    void Initbackground();
 
 	virtual bool onTouchBegan(Touch* touch, Event* unused_event);
 	virtual void onTouchMoved(Touch* touch, Event* unused_event) {};

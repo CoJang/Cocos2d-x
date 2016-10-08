@@ -64,14 +64,14 @@ void Man::update(float delta)
 	static const float speed = 10.f;	// Å¬¼ö·Ï ÁÖ±â°¡ »¡¶óÁü
 
 	float fHeight = MathUtil::lerp(0, power, sin(m_fHeightMover) * 0.5f + 0.5f);
-	float fHeight_undernation = MathUtil::lerp(0, power, sin(m_fHeightMover + PI * 1.25f) * 0.5f + 0.5f);
+	//float fHeight_undernation = MathUtil::lerp(0, power, sin(m_fHeightMover + PI * 1.25f) * 0.5f + 0.5f);
 
 	m_fHeightMover += delta * speed;
 	if (m_fHeightMover > 2 * PI)m_fHeightMover = 0;
 
 	Head->setPosition(Vec2(640, fHeight));
 	Body->setPosition(Vec2(640, fHeight));
-	Legs->setPosition(Vec2(640, fHeight_undernation));
+	Legs->setPosition(Vec2(640, fHeight));
 
 	Sprite::update(delta);
 }

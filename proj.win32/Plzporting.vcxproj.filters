@@ -16,13 +16,16 @@
     <Filter Include="src\Units">
       <UniqueIdentifier>{8e5db9cb-7fa7-406b-a45a-c2b064541e4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{db789481-e5ff-4d00-8f31-3f56bcf49264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{50de2c79-c92f-451b-9d2b-6f1eee461796}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
@@ -39,16 +42,22 @@
     <ClCompile Include="..\Classes\Man.cpp">
       <Filter>src\Units</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\GameScene.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tile&amp;background.cpp">
+      <Filter>src\Units</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
@@ -65,8 +74,17 @@
     <ClInclude Include="..\Classes\Man.h">
       <Filter>src\Units</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\GameScene.h">
-      <Filter>src</Filter>
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tile&amp;background.h">
+      <Filter>src\Units</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
