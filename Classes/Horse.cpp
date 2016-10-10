@@ -17,26 +17,12 @@ Horse::~Horse()
 
 Horse* Horse::InitHorse(cocos2d::Layer* scene)
 {
-	Head = Head->InitAnimation(
-								scene, 
-								12,
-								300, 400,
-								1200, 1200,
-								0.05f,
-								"./horse/horse_head.png"
-							);
+	Head = Head->InitAnimation(scene, 0.05f, "./horse/horse_head.txt");
 
 	Head->setAnchorPoint(Vec2(0.5f, 0));
 	Head->setPosition(Vec2(640, 0));
 
-	Body = Body->InitAnimation(
-								scene, 
-								24,
-								300, 400,
-								1500, 2000,
-								0.05f,
-								"./horse/horse_body.png"
-						);
+	Body = Body->InitAnimation(scene, 0.05f, "./horse/horse_body.txt");
 
 	Body->setAnchorPoint(Vec2(0.5f, 0));
 	Body->setPosition(Vec2(640, 0));

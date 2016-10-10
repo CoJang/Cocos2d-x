@@ -22,13 +22,13 @@
     <Filter Include="src\Scene">
       <UniqueIdentifier>{50de2c79-c92f-451b-9d2b-6f1eee461796}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ETC">
+      <UniqueIdentifier>{bda288b1-4f33-4918-9900-d0bb9e0d23ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MyCamera.cpp">
       <Filter>src\NewFilter1</Filter>
@@ -42,9 +42,6 @@
     <ClCompile Include="..\Classes\Man.cpp">
       <Filter>src\Units</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>src\NewFilter1</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\UI.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
@@ -54,13 +51,19 @@
     <ClCompile Include="..\Classes\tile&amp;background.cpp">
       <Filter>src\Units</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Parser.cpp">
+      <Filter>src\NewFilter1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MyCamera.h">
       <Filter>src\NewFilter1</Filter>
@@ -74,9 +77,6 @@
     <ClInclude Include="..\Classes\Man.h">
       <Filter>src\Units</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src\NewFilter1</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\UI.h">
       <Filter>src\UI</Filter>
     </ClInclude>
@@ -85,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\tile&amp;background.h">
       <Filter>src\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Parser.h">
+      <Filter>src\NewFilter1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

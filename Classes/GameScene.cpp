@@ -67,6 +67,12 @@ bool GameScene::init()
 	InGame_UI = new UI;
 	InGame_UI->InitUI(this);
 
+	bool btemp;
+
+	btemp = Save();
+
+	btemp = Load();
+
 	scheduleUpdate();
     return true;
 }

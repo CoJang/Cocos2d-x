@@ -5,6 +5,7 @@
 #include "Man.h"
 #include "UI.h"
 #include "tile&background.h"
+#include "Parser.h"
 
 USING_NS_CC;
 

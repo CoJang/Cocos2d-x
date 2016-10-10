@@ -153,6 +153,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\Horse.cpp" />
     <ClCompile Include="..\Classes\Man.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
+    <ClCompile Include="..\Classes\Parser.cpp" />
     <ClCompile Include="..\Classes\tile&amp;background.cpp" />
     <ClCompile Include="..\Classes\UI.cpp" />
     <ClCompile Include="main.cpp" />
@@ -165,6 +166,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\Horse.h" />
     <ClInclude Include="..\Classes\Man.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
+    <ClInclude Include="..\Classes\Parser.h" />
     <ClInclude Include="..\Classes\tile&amp;background.h" />
     <ClInclude Include="..\Classes\UI.h" />
     <ClInclude Include="main.h" />

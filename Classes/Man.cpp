@@ -18,38 +18,17 @@ Man::~Man()
 
 Man* Man::InitMan(cocos2d::Layer* scene)
 {
-	Head = Head->InitAnimation(
-								scene, 
-								6,
-								300, 400,
-								1200, 800,
-								0.07f,
-								"./man/man_head.png"
-							);
+	Head = Head->InitAnimation(scene, 0.07f, "./man/man_head.txt");
 
 	Head->setAnchorPoint(Vec2(0.5f, 0));
 	Head->setPosition(Vec2(640, 0));
 
-	Legs = Legs->InitAnimation(
-								scene,
-								6,
-								300, 400,
-								1200, 800,
-								0.1f,
-								"./man/man_legs.png"
-						);
+	Legs = Legs->InitAnimation(scene, 0.1f, "./man/man_legs.txt");
 
 	Legs->setAnchorPoint(Vec2(0.5f, 0));
 	Legs->setPosition(Vec2(640, 0));
 
-	Body = Body->InitAnimation(
-								scene, 
-								6,
-								300, 400,
-								1200, 800,
-								0.07f,
-								"./man/man_body.png"
-						);
+	Body = Body->InitAnimation(scene, 0.07f, "./man/man_body.txt");
 
 	Body->setAnchorPoint(Vec2(0.5f, 0));
 	Body->setPosition(Vec2(640, 0));
